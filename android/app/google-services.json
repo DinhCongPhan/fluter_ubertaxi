@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "585169511103",
+    "firebase_url": "https://uberapp-b6176.firebaseio.com",
+    "project_id": "uberapp-b6176",
+    "storage_bucket": "uberapp-b6176.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585169511103:android:2628ebbca15f41b69b9c0a",
+        "android_client_info": {
+          "package_name": "com.example.fluter_ubertaxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585169511103-h3bls9i9md6ijnjf5h1kp9lt48vvmi9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDefTlZHiW-Z8OCifKx-cxTJanS7-bzKv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585169511103-h3bls9i9md6ijnjf5h1kp9lt48vvmi9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
