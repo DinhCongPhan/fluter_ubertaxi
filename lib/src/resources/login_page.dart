@@ -1,7 +1,12 @@
+import 'package:fluter_ubertaxi/src/app.dart';
+import 'package:fluter_ubertaxi/src/resources/dialog/loadingDialong.dart';
+import 'package:fluter_ubertaxi/src/resources/dialog/msg_Dialog.dart';
 import 'package:fluter_ubertaxi/src/resources/register_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -121,5 +126,18 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void _onLoginClick() {}
+  void _onLoginClick() {
+    String email = _emailController.text;
+    String password = _passController.text;
+    var authBloc = MyApp.of(context).authBloc;
+    LoadingDialog.showLoadingDialog(context, "Loading");
+    authBloc.signIn(email, password, (){
+      LoadingDialog.hideLoadingDialog(context);
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+    },
+        (msg) {
+          LoadingDialog.hideLoadingDialog(context);
+          MsgDialog.showMsgDialog(context, "Sign-In", msg);
+        });
+  }
 }

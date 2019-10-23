@@ -1,4 +1,7 @@
 import 'package:fluter_ubertaxi/src/blocs/auth_bloc.dart';
+import 'package:fluter_ubertaxi/src/resources/dialog/loadingDialong.dart';
+import 'package:fluter_ubertaxi/src/resources/dialog/msg_Dialog.dart';
+import 'package:fluter_ubertaxi/src/resources/home_page.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -160,10 +163,25 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _onSignUpClicked() {
-       var isValid = authBloc.isValid(_nameController.text, _emailController.text, _passController.text, _phoneController.text);
-       if(isValid) {
-
-       }
-
+    var isValid = authBloc.isValid(
+        _nameController.text, _emailController.text, _passController.text,
+        _phoneController.text);
+    if (isValid) {
+      // create user
+      //loading dialog
+     LoadingDialog.showLoadingDialog(context, "Loading...");
+      authBloc.signUp(
+          _emailController.text, _passController.text, _phoneController.text,
+          _nameController.text, () {
+            LoadingDialog.hideLoadingDialog(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+      }, (msg) {
+      // show msg dialog
+        LoadingDialog.hideLoadingDialog(context);
+        MsgDialog.showMsgDialog(context, "Sign-Up", msg);
+      });
+    }
   }
+
 }
