@@ -10,6 +10,9 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="fluter_ubertaxi"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+                   android:value="AIzaSyByQ_DGtLxvQ-8n_MLt5A3KGkHcL7DNLhc"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
